@@ -1,6 +1,6 @@
 import pandas as pd 
 
-words = pd.read_csv("subhkosh.csv") 
+words = pd.read_csv("subdhkosh.csv") 
 # Preview the first 5 lines of the loaded data 
 rows, columns = words.shape
 #print(columns)
