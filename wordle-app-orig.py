@@ -1,5 +1,4 @@
 import pandas as pd 
-from wordfreq import word_frequency
 
 words = pd.read_csv("subdhkosh.csv") 
 # Preview the first 5 lines of the loaded data 
@@ -22,9 +21,7 @@ def search():
 	i =0
 	j=0
 	l_inc_pos = input("Enter positionally incorrect letters: ") #letter incorrect position
-	l_inc_pos = l_inc_pos.upper() 
 	l_inc = input("Enter incorrect letters: ")#letter incorrect
-	l_inc = l_inc.upper()
 	l_pos = input("Do you know the green letters? y/n")
 	if(l_pos.upper()=="Y"):
 		string1 = input("First letter?")
@@ -38,7 +35,8 @@ def search():
 		string1 = input("Fifth letter?")
 		correct.append(string1.upper())
 
-	
+	l_inc_pos = l_inc_pos.upper() 
+	l_inc = l_inc.upper()
 	while i < 12478:
 		string=words.iat[i,0]
 		if(string.find(l_inc_pos[0])!=-1):
@@ -151,27 +149,14 @@ def search():
 	print("Chances of O "+str(vowel[3]/sum*100))
 	print("Chances of U "+str(vowel[4]/sum*100))
 	######################################
-	dictionary ={"word":[],"freq":[]}
-	i=0
-	frequency=0
-	if(len(guess)<11):
-		print("enough words to calculate frequency")
-		while(i<len(guess)):
-			frequency=word_frequency(guess[i], 'en')
-			dictionary["word"].append(guess[i])
-			dictionary["freq"].append(frequency)
-			i+=1
 
-	else:
-		print("Too many guesses for word frequency")
 	i=0
 	while(i<len(guess)):
 		print(guess[i])
 		i+=1
-	
-	for word,freq in dictionary.items():
-		print(word+":"+str(freq))
 
+def freq_API():
+	
 ############################
 ############################
 
